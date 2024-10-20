@@ -39,7 +39,7 @@ export function useGameState() {
     setWinnerSequence(winner);
   };
 
-  const handleResetClick = () => {
+  const resetGame = () => {
     setCells(Array.from({ length: 9 }, () => null));
     setCurrentStep(SYMBOL_X);
     setWinnerSequence(undefined);
@@ -53,7 +53,7 @@ export function useGameState() {
     currentStep,
     winnerSequence,
     handleCellClick,
-    handleResetClick,
+    resetGame,
     winnerSymbol,
     isDraw,
   };

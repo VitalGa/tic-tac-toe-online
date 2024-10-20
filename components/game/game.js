@@ -1,17 +1,11 @@
 import { GameInfo } from './game-info';
 import { GameCell } from './game-cell';
+import { ResetButton } from './reset-button';
 import { useGameState } from './use-game-state';
 
 export function Game() {
-  const {
-    cells,
-    currentStep,
-    winnerSequence,
-    handleCellClick,
-    handleResetClick,
-    winnerSymbol,
-    isDraw,
-  } = useGameState();
+  const { cells, currentStep, winnerSequence, handleCellClick, resetGame, winnerSymbol, isDraw } =
+    useGameState();
 
   return (
     <div className='flex flex-col items-center w-40 mx-auto my-24 border border-black p-5'>
@@ -26,11 +20,7 @@ export function Game() {
           />
         ))}
       </div>
-      <button
-        className='cursor-pointer mt-2.5 bg-transparent border border-gray-400 py-1 px-3 rounded'
-        onClick={handleResetClick}>
-        Сбросить
-      </button>
+      <ResetButton onClick={resetGame} />
     </div>
   );
 }
